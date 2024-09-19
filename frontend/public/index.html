@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>캠핑장 검색</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- !!!IMPORTANT!!! Insert YOUR_NAVER_API_KEY into the Client_ID section line below -->
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_NAVER_API_KEY"></script>
+</head>
+
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">캠핑장 찾기</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">홈</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">소개</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">문의</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">CampAround</h1>
+        <hr>
+        <div class="card mb-4">
+            <div class="card-body">
+                <form action="" method="get" id="searchForm" class="row g-3">
+                    <div class="col-md-6">
+                        <label for="searchQuery" class="form-label">검색</label>
+                        <input type="text" class="form-control w-100" name="searchQuery" placeholder="검색어를 입력하세요"
+                            autocomplete="false">
+                    </div>
+                    <div class="col-md-6 d-flex align-items-end">
+                        <button type="submit" class="btn btn-primary me-2" name="searchBtn">검색</button>
+                        <button type="reset" class="btn btn-secondary" name="searchReset">재입력</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card mb-4" id="moreinfo">
+            <div class="card-body">
+                <h5 class="card-title">상세 정보</h5>
+                <table class="table table-bordered table-hover mt-3">
+                    <caption>상세 정보</caption>
+                    <thead class="table-dark">
+                        <tr>
+                            <th>항목</th>
+                            <th>설명</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>contentId: ID</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>facltNm: 이름</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>featureNm: 상세설명</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>induty: 캠핑장 종류</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>doNm: 위치 (도/군)</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>addr1: 주소</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>tel: 전화번호</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>homepage: 홈페이지</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>firstImageUrl: 소개 이미지</th>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2">
+                                <div id="map" style="width:100%;height:400px;"></div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+
+        <hr>
+
+        <table class="table table-striped table-hover mt-4">
+            <caption>검색 결과</caption>
+            <thead class="table-dark">
+                <tr>
+                    <th>contentId: ID</th>
+                    <th>facltNm: 이름</th>
+                    <th>induty: 캠핑장 종류</th>
+                    <th>doNm: 위치 (도/군)</th>
+                    <th>addr1: 주소</th>
+                    <th>조회</th>
+                </tr>
+            </thead>
+            <tbody id="searchResult">
+                <!-- 동적 생성 구간 -->
+            </tbody>
+        </table>
+
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <footer class="bg-primary text-white text-center py-3 mt-5">
+        <p>&copy; 2024 캠핑장 찾기. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src='/frontend/js/api.js'></script>
+
+</body>
+
+</html>
