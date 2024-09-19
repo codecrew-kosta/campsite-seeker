@@ -1,0 +1,18 @@
+1. 캠핑장 정보 가져와서 현재위치기반으로 지도에 캠핑장 표시하고 테이블에 목록 띄우기 (O)
+2. 전체목록조회 버튼 누르면 전국지도 표시 > 전체 캠핑장 목록 테이블에 띄우기
+3. 검색창에 키워드를 넣으면 해당 캠핑장을 조회해서 테이블에 표시하기 (O)
+
+--------------
+
+https://apis.data.go.kr/B551011/GoCamping/locationBasedList?numOfRows=30&pageNo=1&MobileOS=ETC&MobileApp=CodeCrew&serviceKey=sxw1mCZZJwnC6FC%2B%2Fci%2FW7VFzjuAjH7nnTXpDgP16dniQXRLsMEUAlVkUN3PAN6epAP46wNuIzUJ4GdMSoKcUw%3D%3D&_type=json&mapX=127.105399&mapY=37.3595704&radius=20000
+
+
+--------------
+20240912
+
+추가해야 하는 기능
+
+1. 검색 목록 페이지네이션
+2. 검색 목록 테이블 > 아코디언 div로 변경 후 클릭시 상세정보 띄우기
+3. 마커 클릭 시 상세정보 3의 아코디언에 띄우기 (div에 이미지(없을시 noimage.jpg)와 정보 추가)
+4. 전체목록조회 버튼 추가
