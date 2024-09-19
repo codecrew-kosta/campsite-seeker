@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>openAPI</title>
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=1vrtwwx348"></script>
+    <link rel="stylesheet" href="./home.css">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <div class="listbox">
+
+        <form action="/search" name="search" class="searchbox">
+            <div class="searchinput">
+                <input id="inputval" name="keyword" type="text" placeholder="아무키워드나 검색해봐">
+                <button id="searchBtn" type="submit" class="button_search"><span class="material-symbols-outlined"
+                        style="color: white; font-size: 140%;">
+                        search
+                    </span></button>
+            </div>
+            <!-- <button type="button" id="testbtn">테스트</button> -->
+        </form>
+
+        <!-- 카드 모음 -->
+        <div class="cardbox"></div>
+
+
+    </div>
+
+    <div class="resultbox">
+        <button onclick="canclebtn()">
+            <span class="material-symbols-outlined cancle">
+                arrow_circle_left
+            </span>
+        </button>
+        <div class="cardbox result">
+            <!-- 카드형 -->
+
+
+        </div>
+    </div>
+
+
+    <div class="mapbox">
+        <div id="infoUI">여기 상세내용
+        </div>
+        <div id="map"></div>
+    </div>
+
+    <script src="./js/getApi_info_plus.js"></script>
+</body>
+
+</html>
